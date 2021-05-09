@@ -34,22 +34,46 @@ run-driver: classes
 
 .PHONY: run-driver-benchmark
 run-driver-benchmark: classes
-	echo 7 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver SortedArrayList
-	echo 7 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver CompactSortedArrayList
-	echo 7 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver CompactPriorityQueue
+	echo \
+		10                      \
+		 1 1                    \
+		 2 1 2                  \
+		 3 1 2 3                \
+		 4 1 2 3 4              \
+		 5 1 2 3 4 5            \
+		 6 1 2 3 4 5 6          \
+		 7 1 2 3 4 5 6 7        \
+		 8 1 2 3 4 5 6 7 8      \
+		 9 1 2 3 4 5 6 7 8 9    \
+		10 1 2 3 4 5 6 7 8 9 10 \
+	| time java -enableassertions -XX:MaxHeapSize=16G Driver SortedArrayList
+	echo \
+		10                      \
+		 1 1                    \
+		 2 1 2                  \
+		 3 1 2 3                \
+		 4 1 2 3 4              \
+		 5 1 2 3 4 5            \
+		 6 1 2 3 4 5 6          \
+		 7 1 2 3 4 5 6 7        \
+		 8 1 2 3 4 5 6 7 8      \
+		 9 1 2 3 4 5 6 7 8 9    \
+		10 1 2 3 4 5 6 7 8 9 10 \
+	| time java -enableassertions -XX:MaxHeapSize=16G Driver CompactSortedArrayList
+	echo \
+		10                      \
+		 1 1                    \
+		 2 1 2                  \
+		 3 1 2 3                \
+		 4 1 2 3 4              \
+		 5 1 2 3 4 5            \
+		 6 1 2 3 4 5 6          \
+		 7 1 2 3 4 5 6 7        \
+		 8 1 2 3 4 5 6 7 8      \
+		 9 1 2 3 4 5 6 7 8 9    \
+		10 1 2 3 4 5 6 7 8 9 10 \
+	| time java -enableassertions -XX:MaxHeapSize=16G Driver CompactPriorityQueue
 
-.PHONY: run-driver-long-1
-run-driver-long-1: classes
-	echo 8 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver SortedArrayList
-
-.PHONY: run-driver-long-2
-run-driver-long-2: classes
-	echo 8 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver CompactSortedArrayList
-
-.PHONY: run-driver-long-3
-run-driver-long-3: classes
-	echo 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver CompactSortedArrayList
-
-.PHONY: run-driver-long-4
+.PHONY: run-driver-long
 run-driver-long-4: classes
 	echo 10 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver CompactPriorityQueue
