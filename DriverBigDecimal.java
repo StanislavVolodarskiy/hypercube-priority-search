@@ -1,26 +1,13 @@
-import java.io.InputStream;
-import java.util.Comparator;
+import java.math.BigDecimal;
 
-public class Driver {
+public class DriverBigDecimal {
     public static void main(String... args) {
-        Values values = getValues(args[0], System.in);
+        BigDecimal[][] values = Utils.readValues(System.in);
         startReporter();
-        test(values, getIterable(args[1], values));
+        test(values, getIterable(args[0], values));
     }
 
-    private static Values getValues(String what, InputStream is) {
-        switch (what) {
-        case "LongValues":
-            return new LongValues(is);
-        case "BigDecimalValues":
-            return new BigDecimalValues(is);
-        default:
-            assert false;
-        }
-        return null;
-    }
-
-    private static Iterable<int[]> getIterable(String what, Values values) {
+    private static Iterable<int[]> getIterable(String what, BigDecimal[][] values) {
         switch (what) {
         case "SortedArrayList":
             return new SortedArrayList(values);
@@ -34,20 +21,19 @@ public class Driver {
         return null;
     }
 
-    private static void test(Values values, Iterable<int[]> iterable) {
-        Comparator<int[]> comparator = values.getComparator();
-        
+    private static void test(BigDecimal[][] values, Iterable<int[]> iterable) {
         long n = 0;
-        int[] prev = null;
+        BigDecimal lastSum = null;
         for (int[] indices : iterable) {
             ++n;
             if (n % 1000000 == 0) {
                 log("n", n);
             }
-            assert prev == null || comparator.compare(prev, indices) <= 0;
-            prev = indices.clone();
+            BigDecimal sum = Utils.sum(values, indices);
+            assert lastSum == null || lastSum.compareTo(sum) <= 0;
+            lastSum = sum;
         }
-        assert n == Utils.size(values.getDims());
+        assert n == Utils.size(values);
     }
 
     private static void startReporter() {

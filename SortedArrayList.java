@@ -1,14 +1,14 @@
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SortedArrayList implements Iterable<int[]> {
     private final Iterable<int[]> iterable;
 
-    public SortedArrayList(BigDecimal[][] values) {
-        long size = Utils.size(values);
+    public SortedArrayList(Values values) {
+        int[] dims = values.getDims();
+        long size = Utils.size(dims);
         assert(size <= Integer.MAX_VALUE);
-        int[] indices = new int[values.length];
+        int[] indices = new int[dims.length];
 
         ArrayList<int[]> list = new ArrayList<int[]>();
         list.ensureCapacity((int)size);
@@ -16,7 +16,7 @@ public class SortedArrayList implements Iterable<int[]> {
             list.add(indices.clone());
             int i;
             for (i = indices.length - 1; i >= 0; --i) {
-                if (indices[i] < values[i].length - 1) {
+                if (indices[i] < dims[i] - 1) {
                     break;
                 }
             }
@@ -29,7 +29,7 @@ public class SortedArrayList implements Iterable<int[]> {
             }
         }
 
-        list.sort((i1, i2) -> Utils.sum(values, i1).compareTo(Utils.sum(values, i2)));
+        list.sort(values.getComparator());
         iterable = list;
     }
 

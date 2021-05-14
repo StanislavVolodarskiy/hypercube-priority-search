@@ -1,6 +1,6 @@
 public class LongHeap {
     public static interface Comparator {
-        public int compare(long v1, long v2);
+        int compare(long v1, long v2);
     }
 
     private final long[] array;
