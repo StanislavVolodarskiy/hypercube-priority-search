@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class LongValues implements Values {
+public class LongValues extends Values {
     private final long[][] values;
 
     public LongValues(InputStream is) {

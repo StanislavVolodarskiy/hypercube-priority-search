@@ -21,7 +21,7 @@ public class CompactPriorityQueue implements Iterable<int[]> {
         public Iterator_(Values values) {
             dims = values.getDims();
             LongHeap.Comparator comparator = values.getCachedLongComparator(/* 1 */ /* 101 */ 100003 /* 1000003 */ /* 10000019 */);
-            long size = Utils.sizeButLast(dims);
+            long size = values.sizeButLast();
             assert size < Integer.MAX_VALUE;
             queue = new LongPriorityQueue(
                 (int)size,

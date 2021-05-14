@@ -8,7 +8,7 @@ public class CompactSortedArrayList implements Iterable<int[]> {
     public CompactSortedArrayList(Values values) {
         dims = values.getDims();
 
-        long size = Utils.size(dims);
+        long size = values.size();
         assert(size <= Integer.MAX_VALUE);
 
         array = new long[(int)size];

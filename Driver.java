@@ -47,7 +47,7 @@ public class Driver {
             assert prev == null || comparator.compare(prev, indices) <= 0;
             prev = indices.clone();
         }
-        assert n == Utils.size(values.getDims());
+        assert n == values.size();
     }
 
     private static void startReporter() {

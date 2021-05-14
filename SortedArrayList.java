@@ -6,7 +6,7 @@ public class SortedArrayList implements Iterable<int[]> {
 
     public SortedArrayList(Values values) {
         int[] dims = values.getDims();
-        long size = Utils.size(dims);
+        long size = values.size();
         assert(size <= Integer.MAX_VALUE);
         int[] indices = new int[dims.length];
 

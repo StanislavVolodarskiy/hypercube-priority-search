@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class BigDecimalValues implements Values {
+public class BigDecimalValues extends Values {
     private final BigDecimal[][] values;
 
     public BigDecimalValues(InputStream is) {

@@ -18,7 +18,6 @@ CLASSES = \
 		  LongPriorityQueue.java \
 		  LongSort.java \
 		  SortedArrayList.java \
-		  Utils.java \
 		  Values.java \
 		  LongValues.java \
 		  BigDecimalValues.java
