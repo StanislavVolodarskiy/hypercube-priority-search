@@ -120,8 +120,32 @@ run-driver-benchmark: classes
 
 .PHONY: run-driver-long
 run-driver-long-4: classes
-	echo 10 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver BigDecimalValues CompactPriorityQueue
-	echo 10 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 | time java -enableassertions -XX:MaxHeapSize=16G Driver LongValues CompactPriorityQueue
+	echo \
+		10                     \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+	| time java -enableassertions -XX:MaxHeapSize=16G Driver BigDecimalValues CompactPriorityQueue
+	echo \
+		10                     \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+		10 0 1 2 3 4 5 6 7 8 9 \
+	| time java -enableassertions -XX:MaxHeapSize=16G Driver LongValues CompactPriorityQueue
 
 .PHONY: run-driver-4-40
 run-driver-4-40: classes
