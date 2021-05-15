@@ -44,8 +44,12 @@ public class Driver {
             if (n % 1000000 == 0) {
                 log("n", n);
             }
-            assert prev == null || comparator.compare(prev, indices) <= 0;
-            prev = indices.clone();
+            if (prev == null) {
+                prev = indices.clone();
+            } else {
+                assert comparator.compare(prev, indices) <= 0;
+                System.arraycopy(indices, 0, prev, 0, indices.length);
+            }
         }
         assert n == values.size();
     }
